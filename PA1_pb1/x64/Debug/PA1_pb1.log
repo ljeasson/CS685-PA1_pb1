@@ -1,0 +1,9 @@
+﻿  PA1_pb1.cpp
+C:\Users\Lee\source\repos\PA1_pb1\PA1_pb1\PA1_pb1.cpp(29,11): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Lee\source\repos\PA1_pb1\PA1_pb1\PA1_pb1.cpp(30,12): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Lee\source\repos\PA1_pb1\PA1_pb1\PA1_pb1.cpp(51,11): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Lee\source\repos\PA1_pb1\PA1_pb1\PA1_pb1.cpp(52,12): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Lee\source\repos\PA1_pb1\PA1_pb1\PA1_pb1.cpp(148,25): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Lee\source\repos\PA1_pb1\PA1_pb1\PA1_pb1.cpp(234,18): warning C4101: 'output': unreferenced local variable
+  LINK : C:\Users\Lee\source\repos\PA1_pb1\x64\Debug\PA1_pb1.exe not found or not built by the last incremental link; performing full link
+  PA1_pb1.vcxproj -> C:\Users\Lee\source\repos\PA1_pb1\x64\Debug\PA1_pb1.exe
