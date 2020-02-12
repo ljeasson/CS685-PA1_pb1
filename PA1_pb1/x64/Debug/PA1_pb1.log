@@ -1,9 +1,9 @@
 ﻿  PA1_pb1.cpp
-C:\Users\Lee\source\repos\PA1_pb1\PA1_pb1\PA1_pb1.cpp(29,11): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Lee\source\repos\PA1_pb1\PA1_pb1\PA1_pb1.cpp(30,12): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Lee\source\repos\PA1_pb1\PA1_pb1\PA1_pb1.cpp(51,11): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Lee\source\repos\PA1_pb1\PA1_pb1\PA1_pb1.cpp(52,12): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Lee\source\repos\PA1_pb1\PA1_pb1\PA1_pb1.cpp(148,25): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
-C:\Users\Lee\source\repos\PA1_pb1\PA1_pb1\PA1_pb1.cpp(234,18): warning C4101: 'output': unreferenced local variable
-  LINK : C:\Users\Lee\source\repos\PA1_pb1\x64\Debug\PA1_pb1.exe not found or not built by the last incremental link; performing full link
+C:\Users\Lee\source\repos\PA1_pb1\PA1_pb1\PA1_pb1.cpp(31,11): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Lee\source\repos\PA1_pb1\PA1_pb1\PA1_pb1.cpp(32,12): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Lee\source\repos\PA1_pb1\PA1_pb1\PA1_pb1.cpp(53,11): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Lee\source\repos\PA1_pb1\PA1_pb1\PA1_pb1.cpp(54,12): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Lee\source\repos\PA1_pb1\PA1_pb1\PA1_pb1.cpp(157,17): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\Lee\source\repos\PA1_pb1\PA1_pb1\PA1_pb1.cpp(166,37): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Lee\source\repos\PA1_pb1\PA1_pb1\PA1_pb1.cpp(229,18): warning C4101: 'output': unreferenced local variable
   PA1_pb1.vcxproj -> C:\Users\Lee\source\repos\PA1_pb1\x64\Debug\PA1_pb1.exe
