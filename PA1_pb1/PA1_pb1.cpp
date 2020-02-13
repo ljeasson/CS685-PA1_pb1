@@ -152,9 +152,9 @@ void apply_gaussian_smoothing_2D_with_1D(int** image, int x_size, int y_size, fl
 			float sum = 0.0;
 			for (int i = kernel_size / 2; i < kernel_size - (kernel_size / 2); ++i)
 			{
-				sum += image[index_i + i][index_j] * kernel[i];
+				sum += image[index_i + i][index_j] * kernel[i + (kernel_size / 2)];
 			}
-			output_image[index_i][index_j] = sum;
+			output_image[index_i - kernel_size / 2][index_j - kernel_size / 2] = sum;
 		}
 	}
 }
@@ -162,7 +162,7 @@ void apply_gaussian_smoothing_2D_with_1D(int** image, int x_size, int y_size, fl
 
 int main()
 {
-	const float sigma = 11.0;
+	const float sigma = 5.0;
 	const int mask_size = 5 * int(sigma);
 	const int padded_size = 128 + mask_size - 1;
 
@@ -205,8 +205,10 @@ int main()
 	//imwrite("Rect_128 (Smoothed).jpg", smoothed_signal_resized);
 	*/
 
+	
 	//////////////////////////////////////////////////////
 	/* 2D Gaussian Smooting */
+	/*
 	int** input, ** output;
 	int x_size, y_size, Q;
 	char name[20] = "lenna.pgm";
@@ -280,12 +282,12 @@ int main()
 
 
 	WriteImage(outfile, input_smoothed, x_size, y_size, Q);
+	*/
 
 
 	
 	//////////////////////////////////////////////////////
 	/* 2D Gaussian Smooting with 1D Convolution */
-	/*
 	int** input, ** output;
 	int x_size, y_size, Q;
 	char name[25] = "lenna.pgm";
@@ -311,18 +313,18 @@ int main()
 
 	// Apply Gaussian smoothing to image
 	int** input_smoothed;
-	input_smoothed = new int* [y_size + mask_size - 1];
-	for (int i = 0; i < y_size + mask_size - 1; i++)
-		input_smoothed[i] = new int[x_size + mask_size - 1];
+	input_smoothed = new int* [y_size];
+	for (int i = 0; i < y_size; i++)
+		input_smoothed[i] = new int[x_size];
 
-	for (int i = 0; i < y_size + mask_size - 1; i++)
-		for (int j = 0; j < x_size + mask_size - 1; j++)
+	for (int i = 0; i < y_size; i++)
+		for (int j = 0; j < x_size; j++)
 			input_smoothed[i][j] = 0;
 
 	apply_gaussian_smoothing_2D_with_1D(input_padded, x_size, y_size, Gaussian_Kernel_2D_1D, mask_size, input_smoothed);
 
 	WriteImage(outfile, input_smoothed, x_size, y_size, Q);
-	*/
+
 
 	waitKey(0);
 	return 0;

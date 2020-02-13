@@ -5,6 +5,6 @@ C:\Users\Lee\source\repos\PA1_pb1\PA1_pb1\PA1_pb1.cpp(55,11): warning C4244: '='
 C:\Users\Lee\source\repos\PA1_pb1\PA1_pb1\PA1_pb1.cpp(56,12): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
 C:\Users\Lee\source\repos\PA1_pb1\PA1_pb1\PA1_pb1.cpp(134,17): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
 C:\Users\Lee\source\repos\PA1_pb1\PA1_pb1\PA1_pb1.cpp(141,69): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\Lee\source\repos\PA1_pb1\PA1_pb1\PA1_pb1.cpp(157,37): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\Lee\source\repos\PA1_pb1\PA1_pb1\PA1_pb1.cpp(210,18): warning C4101: 'output': unreferenced local variable
+C:\Users\Lee\source\repos\PA1_pb1\PA1_pb1\PA1_pb1.cpp(157,73): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Lee\source\repos\PA1_pb1\PA1_pb1\PA1_pb1.cpp(291,18): warning C4101: 'output': unreferenced local variable
   PA1_pb1.vcxproj -> C:\Users\Lee\source\repos\PA1_pb1\x64\Debug\PA1_pb1.exe
