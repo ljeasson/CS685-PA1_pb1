@@ -415,7 +415,7 @@ int main(int argc, char** argv)
 		for (int j = 0; j < x_size; j++)
 			input_smoothed_2D_1D[i][j] = 0;
 
-	apply_gaussian_smoothing_2D_with_1D(input_padded_2D_1D, x_size, y_size, Gaussian_Kernel_2D_1D, mask_size, input_smoothed_2D_1D);
+	apply_gaussian_smoothing_2D_with_1D(input_padded_2D_1D, x_size + mask_size - 1, y_size + mask_size - 1, Gaussian_Kernel_2D_1D, mask_size, input_smoothed_2D_1D);
 
 
 	WriteImage(outfile_smoothed_1D, input_smoothed_2D_1D, x_size, y_size, Q);
