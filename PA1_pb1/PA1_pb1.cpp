@@ -1,6 +1,6 @@
-#include <opencv2/core/core.hpp>
-#include <opencv2/highgui/highgui.hpp>
-#include <opencv2/imgproc.hpp>
+//#include <opencv2/core/core.hpp>
+//#include <opencv2/highgui/highgui.hpp>
+//#include <opencv2/imgproc.hpp>
 
 #include <iostream>
 #include <fstream>
@@ -14,7 +14,7 @@
 
 #define pi 3.141592653589793
 
-using namespace cv;
+//using namespace cv;
 using namespace std;
 
 void generate_gaussian_kernel_1D(float* kernel, double sigma, int kernel_size);
@@ -128,7 +128,6 @@ void apply_gaussian_smoothing_1D(float* signal, int signal_size, float kernel[],
 		output_signal[index - kernel_size / 2] = sum;
 	}
 	if (min_value < 0) min_value = 0;
-	//cout << min_value << endl << max_value << endl;
 
 	for (int index = kernel_size / 2; index < signal_size - (kernel_size / 2); ++index)
 	{
@@ -180,32 +179,25 @@ void apply_gaussian_smoothing_2D(int** image, int x_size, int y_size, float** ke
 
 void apply_gaussian_smoothing_2D_with_1D(int** image, int x_size, int y_size, float kernel[], int kernel_size, int** output_image)
 {
-	for (int i = 0; i < 25; i++)
-	{
-		for (int j = 0; j < 25; j++)
-		{
-			cout << image[i][j] << " ";
-		}
-		cout << endl;
-	}
-	cout << endl;
-
+	float min_value;
+	float max_value;
+	
 	// Perform convolution on x-axis
-	float min_value = 0;
-	float max_value = 0;
+	min_value = 0;
+	max_value = 0;
 	for (int index_i = kernel_size / 2; index_i < y_size - (kernel_size / 2); ++index_i)
 	{
 		for (int index_j = kernel_size / 2; index_j < x_size - (kernel_size / 2); ++index_j)
 		{
 			float sum = 0.0;
-			for (int i = -kernel_size / 2; i <= kernel_size - (kernel_size / 2); ++i)
+			for (int i = -kernel_size / 2; i <= kernel_size / 2; ++i)
 			{
 				float data = image[index_i][index_j + i];
 				float coeff = kernel[i + (kernel_size / 2)];
 
 				sum += data * coeff;
 
-				cout << data << "\t" << coeff << "\t" << sum << endl;
+				//cout << data << "\t" << coeff << "\t" << sum << endl;
 
 				if (sum < min_value)
 					min_value = sum;
@@ -213,11 +205,40 @@ void apply_gaussian_smoothing_2D_with_1D(int** image, int x_size, int y_size, fl
 					max_value = sum;
 			}
 			output_image[index_i - kernel_size / 2][index_j - kernel_size / 2] = sum;
-			cout << sum << endl;
-			cout << output_image[index_i - kernel_size / 2][index_j - kernel_size / 2] << endl;
+			//cout << sum << endl;
+			//cout << output_image[index_i - kernel_size / 2][index_j - kernel_size / 2] << endl << endl;
 		}
 	}
+	//cout << min_value << endl << max_value << endl;
 
+	// Perform convolution on x-axis
+	min_value = 0;
+	max_value = 0;
+	for (int index_i = kernel_size / 2; index_i < y_size - (kernel_size / 2); ++index_i)
+	{
+		for (int index_j = kernel_size / 2; index_j < x_size - (kernel_size / 2); ++index_j)
+		{
+			float sum = 0.0;
+			for (int i = -kernel_size / 2; i <= kernel_size / 2; ++i)
+			{
+				float data = image[index_i + i][index_j];
+				float coeff = kernel[i + (kernel_size / 2)];
+
+				sum += data * coeff;
+
+				//cout << data << "\t" << coeff << "\t" << sum << endl;
+
+				if (sum < min_value)
+					min_value = sum;
+				if (sum > max_value)
+					max_value = sum;
+			}
+			output_image[index_i - kernel_size / 2][index_j - kernel_size / 2] = sum;
+			//cout << sum << endl;
+			//cout << output_image[index_i - kernel_size / 2][index_j - kernel_size / 2] << endl;
+		}
+	}
+	//cout << min_value << endl << max_value << endl;
 
 	for (int index_i = kernel_size / 2; index_i < y_size - (kernel_size / 2); ++index_i)
 	{
@@ -233,7 +254,6 @@ void apply_gaussian_smoothing_2D_with_1D(int** image, int x_size, int y_size, fl
 
 int main(int argc, char** argv)
 {
-	/*
 	const char* file = NULL;
 	float s = 0;
 
@@ -243,10 +263,8 @@ int main(int argc, char** argv)
 	cout << "filename: " << file << endl;
 	cout << "sigma: " << s << endl << endl;
 
-	//const float sigma = s;
-	*/
-
-	const float sigma = 1.0;
+	//const float sigma = 1.0;
+	const float sigma = s;
 	const int mask_size = 5 * int(sigma);
 	const int padded_size = 128 + mask_size - 1;
 
@@ -269,10 +287,10 @@ int main(int argc, char** argv)
 	cout << endl << endl;
 	*/
 
-	Mat orig_signal = Mat(1, 128, CV_32F, rect_128);
-	Mat orig_signal_resized;
-	resize(orig_signal, orig_signal_resized, cv::Size(640, 240), 0, 0, cv::INTER_AREA);
-	imshow("Rect_128 (Original)", orig_signal_resized);
+	//Mat orig_signal = Mat(1, 128, CV_32F, rect_128);
+	//Mat orig_signal_resized;
+	//resize(orig_signal, orig_signal_resized, cv::Size(640, 240), 0, 0, cv::INTER_AREA);
+	//imshow("Rect_128 (Original)", orig_signal_resized);
 	//imwrite("Rect_128 (Original).jpg", orig_signal_resized);
 
 	// Pad signal with zeros
@@ -318,10 +336,10 @@ int main(int argc, char** argv)
 	}
 
 	// Display smoothed signal
-	Mat smoothed_signal = Mat(1, 128, CV_32F, rect_128_smoothed);
-	Mat smoothed_signal_resized;
-	resize(smoothed_signal, smoothed_signal_resized, cv::Size(640, 240), 0, 0, cv::INTER_AREA);
-	imshow("Rect_128 (Smoothed)", smoothed_signal_resized);
+	//Mat smoothed_signal = Mat(1, 128, CV_32F, rect_128_smoothed);
+	//Mat smoothed_signal_resized;
+	//resize(smoothed_signal, smoothed_signal_resized, cv::Size(640, 240), 0, 0, cv::INTER_AREA);
+	//imshow("Rect_128 (Smoothed)", smoothed_signal_resized);
 	//imwrite("Rect_128 (Smoothed).jpg", smoothed_signal_resized);
 	
 	cout << "Rect_128 signal saved as Rect_128_smoothed.txt" << endl;
@@ -399,20 +417,11 @@ int main(int argc, char** argv)
 
 	apply_gaussian_smoothing_2D_with_1D(input_padded_2D_1D, x_size, y_size, Gaussian_Kernel_2D_1D, mask_size, input_smoothed_2D_1D);
 
-	for (int i = 0; i < 25; i++)
-	{
-		for (int j = 0; j < 25; j++)
-		{
-			cout << input_smoothed_2D_1D[i][j] << " ";
-		}
-		cout << endl;
-	}
-	cout << endl;
 
 	WriteImage(outfile_smoothed_1D, input_smoothed_2D_1D, x_size, y_size, Q);
 	cout << name << " smoothed with 1D kernel saved as " << outfile_smoothed_1D << endl;
 
 
-	waitKey(0);
+	//waitKey(0);
 	return 0;
 }
